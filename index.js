@@ -35,22 +35,19 @@ function makeSound(key){
 
   }
 }
-function handleClicked(){
-
-  var buttonInnerHTML=this.innerHTML;
-  makeSound(buttonInnerHTML)
-}
-function handleRaped(){
-  // random function to add character to the code
-  alert("I got raped :<")
-}
 
 
 // Add listeners to buttons for clicks
 var buttons=document.querySelectorAll(".drum")
 for (var i=0;i<buttons.length;i++){
-  buttons[i].addEventListener("click",handleClicked)
-  buttons[i].addEventListener("dblclick",handleRaped)
+  buttons[i].addEventListener("click",function(){
+    var buttonInnerHTML=this.innerHTML;
+    makeSound(buttonInnerHTML);
+  })
+  buttons[i].addEventListener("dblclick",function(event){
+    // random function to add character to the code when button is pressed too much
+    alert("Don't damage my virtual drums! :<")
+  })
 }
 
 // Listeners for keyboard presses
