@@ -35,7 +35,11 @@ function makeSound(key){
 
   }
 }
-
+function buttonAnimation(key){
+  var activeButton=document.querySelector("."+key);
+  activeButton.classList.add("pressed")
+  setTimeout(function(){activeButton.classList.remove("pressed")},100);
+}
 
 // Add listeners to buttons for clicks
 var buttons=document.querySelectorAll(".drum")
@@ -43,6 +47,7 @@ for (var i=0;i<buttons.length;i++){
   buttons[i].addEventListener("click",function(){
     var buttonInnerHTML=this.innerHTML;
     makeSound(buttonInnerHTML);
+    buttonAnimation(buttonInnerHTML);
   })
   buttons[i].addEventListener("dblclick",function(event){
     // random function to add character to the code when button is pressed too much
@@ -52,4 +57,5 @@ for (var i=0;i<buttons.length;i++){
 
 // Listeners for keyboard presses
 document.addEventListener("keydown", function(event){
-  makeSound(event.key);})
+  makeSound(event.key);
+  buttonAnimation(event.key);})
