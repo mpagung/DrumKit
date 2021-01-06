@@ -1,13 +1,5 @@
-var buttons=document.querySelectorAll(".drum")
-for (var i=0;i<buttons.length;i++){
-  buttons[i].addEventListener("click",handleClicked)
-  buttons[i].addEventListener("dblclick",handleRaped)
-}
-
-document.addEventListener("keydown", function(event){
-  makeSound(event.key);})
-
 function makeSound(key){
+  // causes the audio file to play depending on what key is pressed
   console.log(key)
   switch (key) {
     case "w":
@@ -44,10 +36,23 @@ function makeSound(key){
   }
 }
 function handleClicked(){
-  var buttonInnerHTML=this.innerHTML;
 
+  var buttonInnerHTML=this.innerHTML;
   makeSound(buttonInnerHTML)
 }
 function handleRaped(){
+  // random function to add character to the code
   alert("I got raped :<")
 }
+
+
+// Add listeners to buttons for clicks
+var buttons=document.querySelectorAll(".drum")
+for (var i=0;i<buttons.length;i++){
+  buttons[i].addEventListener("click",handleClicked)
+  buttons[i].addEventListener("dblclick",handleRaped)
+}
+
+// Listeners for keyboard presses
+document.addEventListener("keydown", function(event){
+  makeSound(event.key);})
